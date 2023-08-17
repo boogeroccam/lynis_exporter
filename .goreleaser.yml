@@ -7,14 +7,10 @@ builds:
     - CGO_ENABLED=0
     goos:
     - linux
-    - darwin
-    - freebsd
     goarch:
     - amd64
-    - arm
-    - arm64
     ignore:
-    - goos: freebsd
-      goarch: arm64
+    - goos: freebsd,darwin
+      goarch: arm64,arm
     ldflags: -s -w -X main.version={{.Version}}
     binary: lynis_exporter
